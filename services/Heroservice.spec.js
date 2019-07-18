@@ -15,7 +15,7 @@ describe("test register heroes", () => {
     it("should add Batman to heroes", () => {
         // GIVEN
         let heroFromApi = {name: 'Batman'}
-        const expected = [{name: 'Batman', location: 'Batcave', action: 'Standby'}]
+        const expected = [{hero: 'Batman', location: 'Batcave', action: 'Standby'}]
 
         // WHEN
         heroService.registerHero(heroFromApi)
@@ -31,7 +31,7 @@ describe("sent hero to mission", () => {
     it("should delete a hero from the availableHero list when he is sent on mission", () => {
         // GIVEN
         heroService = new HeroService()
-        const expected = [{name: 'Batman', location: 'Paris', action: 'prevent'}]
+        const expected = [{hero: 'Batman', location: 'Paris', action: 'Prevent'}]
         const event = {type: 'flood', strength: '1', location: 'Paris'}
         heroService.registerHero({name: 'Batman'})
 
@@ -46,7 +46,7 @@ describe("sent hero to mission", () => {
     it(" 2222 should delete a hero from the availableHero list when he is sent on mission", () => {
         // GIVEN
         heroService = new HeroService()
-        const expected = [{name: 'Batman', location: 'Paris', action: 'prevent'},{name: 'Superman', location: 'Batcave', action: 'Standby'}]
+        const expected = [{hero: 'Batman', location: 'Paris', action: 'Prevent'},{hero: 'Superman', location: 'Batcave', action: 'Standby'}]
         const event = {type: 'flood', strength: '1', location: 'Paris'}
         heroService.registerHero({name: 'Batman'})
         heroService.registerHero({name: 'Superman'})

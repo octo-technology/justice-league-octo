@@ -8,7 +8,7 @@ class HeroService {
     }
 
     registerHero(hero){
-        const heroTemplate = {name: hero.name, location: 'Batcave', action: 'Standby'}
+        const heroTemplate = {hero: hero.name, location: 'Batcave', action: 'Standby'}
         this.heroes.push(heroTemplate)
     }
 
@@ -16,7 +16,7 @@ class HeroService {
         let heroFound = false
         this.heroes = this.heroes.map(hero => {
             if (hero.action === 'Standby' && !heroFound) {
-                hero.action = 'prevent'
+                hero.action = 'Prevent'
                 hero.location = event.location
                 heroFound = true
             }
