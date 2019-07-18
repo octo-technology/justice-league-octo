@@ -1,6 +1,9 @@
 var express = require('express');
+
 var app = express();
 const port = process.env.PORT || 3001;
+
+app.use(express.json());
 
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -12,11 +15,9 @@ app.get('/health', function (req, res) {
     res.send("OK !");
 });
 
-app.post('/registration', function (req, res) {
-    let heroList = [];
-    console.log(req, res);
-    // sauvegarde le heros 
-    res.send("registration !");
+app.post('/event', function (req, res) {
+    console.log(req.body);
+    res.send("event received!");
 });
 
 app.post('/preview', function (req, res) {
