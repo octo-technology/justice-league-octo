@@ -20,16 +20,17 @@ app.post('/event', function (req, res) {
     res.send("event received!");
 });
 
-app.post('/preview', function (req, res) {
-    res.send(API_PAYLOADS.GET_PREVIEWS.OK);
+app.get('/interventionPlan', function (req, res) {
+    res.send([
+        {
+          "hero": "Batman",
+          "location": "New York",
+          "action": "saving"
+        }
+      ]);
 });
+
 
 app.listen(port, function () {
     console.log('API mocks app listening on port 3001!')
 });
-
-
-
-// POST {api-root-url}/event
-
-// GET {api-root-url}/interventionPlan
