@@ -31,7 +31,7 @@ describe("sent hero to mission", () => {
 
     it("should delete a hero from the availableHero list when he is sent on mission", () => {
         // GIVEN
-        const hero = 'Batman'
+        const hero = {name: 'Batman'}
         heroService.registerHero(hero)
         const expected = []
 
@@ -39,6 +39,23 @@ describe("sent hero to mission", () => {
         heroService.sendOnMission(hero)
 
         // THEN
-        expect(expected).toEqual([])
+        expect(expected).toEqual(heroService.getAvailableHeroes())
+    })
+})
+
+describe("end of mission", () => {
+    heroService = new HeroService()
+
+    it("should free all heroes", () => {
+        // GIVEN
+        heroService.registerHero({name: 'Batman'})
+        heroService.registerHero({name: 'Superman'})
+        const expected = []
+
+        // WHEN
+        heroService.freeHeroes()
+
+        // THEN
+        expect(expected).toEqual(heroService.getAvailableHeroes())
     })
 })

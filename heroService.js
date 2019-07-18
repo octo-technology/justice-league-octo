@@ -12,10 +12,10 @@ class HeroService {
     }
 
     sendOnMission(hero){
-        this.availableHeroes.filter(heroName => heroName !== hero)
+        this.availableHeroes = this.availableHeroes.filter(heroName => heroName !== hero.name)
     }
 
-    endOfMission(){
+    freeHeroes(){
         this.availableHeroes = []
     }
 }

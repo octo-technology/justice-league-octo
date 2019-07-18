@@ -6,7 +6,7 @@ class EventService {
 
     handleEvent(event) {
         if(event.type === "End Of Mission") {
-            heroService.endOfMission()
+            heroService.freeHeroes()
         }
     }
 }
