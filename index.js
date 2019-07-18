@@ -1,9 +1,11 @@
 var express = require('express');
-const Services = require('./services')
+const EventService = require('./eventService')
+const HeroService = require('./heroService')
 
 var app = express();
 const port = process.env.PORT || 3001;
-const services = new Services()
+const eventService = new EventService()
+const heroService = new HeroService()
 let events = []
 app.use(express.json());
 
@@ -18,13 +20,14 @@ app.get('/health', function (req, res) {
 });
 
 app.post('/event', function (req, res) {
-    console.log(req.body);
+    console.log('Event: ',req.body);
+    eventService.handleEvent(req.body)
     res.send("Event received!");
 });
+
 app.post('/registration', function (req, res) {
-    console.log(req.body);
-    services.registerHero(req.body)
-    console.log(services.getAvailableHeroes())
+    console.log('registration: ',req.body);
+    heroService.registerHero(req.body)
     res.send("Hero received!");
 });
 

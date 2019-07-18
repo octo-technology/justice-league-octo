@@ -1,8 +1,8 @@
- 
-class Services {
+class HeroService {
     constructor() {
         this.availableHeroes = []
     }
+
     getAvailableHeroes() {
         return this.availableHeroes
     }
@@ -11,9 +11,13 @@ class Services {
         this.availableHeroes.push(hero.name)
     }
 
+    sendOnMission(hero){
+        this.availableHeroes.filter(heroName => heroName !== hero)
+    }
+
     endOfMission(){
         this.availableHeroes = []
     }
- }
+}
 
- module.exports = Services
+module.exports = HeroService
