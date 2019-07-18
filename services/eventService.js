@@ -7,7 +7,7 @@ class EventService {
         if(event.type === "End Of Mission") {
             this.heroService.freeHeroes()
         } else {
-
+            this.heroService.sendOnMission(event)
         }
     }
 
